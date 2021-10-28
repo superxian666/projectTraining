@@ -44,7 +44,7 @@ reportNG的配置与使用
 
 7. 右键 testng.xml    选择Run  As  ——> TestNg Suite  运行
 
-8. 可以在本地的test-output/html文件目录下查看测试报告 (不要eclipse找路径)![reportNG](./picture/reportNG.PNG)
+8. 可以在本地的test-output/html文件目录下查看测试报告 (不要eclipse找路径)![reportNG](./mypicture/reportNG.PNG)
 
 9. 运行成功（如果有错误的测试方法，左侧有红色叉号提示）
 
