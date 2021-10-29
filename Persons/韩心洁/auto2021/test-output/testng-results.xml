@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="12" total="13" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="43148" started-at="2021-10-27T13:25:47Z" finished-at="2021-10-27T13:26:30Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="43148" started-at="2021-10-27T13:25:47Z" finished-at="2021-10-27T13:26:30Z">
+      <class name="test.hanxinjie.demo.TestScore">
+        <test-method status="PASS" signature="addListener(org.testng.ITestContext)[pri:0, instance:test.hanxinjie.demo.TestScore@5419f379]" name="addListener" is-config="true" duration-ms="5" started-at="2021-10-27T21:25:47Z" description="请求一个监听器" finished-at="2021-10-27T21:25:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7a560583]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addListener -->
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:test.hanxinjie.demo.TestScore@5419f379]" name="doBeforeClass" is-config="true" duration-ms="5545" started-at="2021-10-27T21:25:47Z" finished-at="2021-10-27T21:25:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="testLogin1()[pri:0, instance:test.hanxinjie.demo.TestScore@5419f379]" name="testLogin1" is-config="true" duration-ms="15769" started-at="2021-10-27T21:25:53Z" finished-at="2021-10-27T21:26:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin1 -->
+        <test-method status="PASS" signature="test36()[pri:0, instance:test.hanxinjie.demo.TestScore@5419f379]" name="test36" duration-ms="20963" started-at="2021-10-27T21:26:08Z" finished-at="2021-10-27T21:26:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test36 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:test.hanxinjie.demo.TestScore@5419f379]" name="doAfterMethod" is-config="true" duration-ms="850" started-at="2021-10-27T21:26:29Z" finished-at="2021-10-27T21:26:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+      </class> <!-- test.hanxinjie.demo.TestScore -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
