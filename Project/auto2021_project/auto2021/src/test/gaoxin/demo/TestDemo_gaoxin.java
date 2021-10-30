@@ -1,4 +1,4 @@
-package com.webtest.demo1;
+package test.gaoxin.demo;
 
 import javax.naming.spi.DirStateFactory.Result;
 
@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 import com.webtest.core.BaseTest;
 
 public class TestDemo_gaoxin extends BaseTest{
-//	µÇÂ¼ ²¢Ìø×ªµ½Ê×Ò³
+//	ï¿½ï¿½Â¼ ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ò³
 	
 	
 	@Test
 	public void test01_login() throws InterruptedException {
 		webtest.open("/");
-		webtest.click("link=µÇÂ¼");
+		webtest.click("link=ï¿½ï¿½Â¼");
 		
 		webtest.click("name=user");
 		webtest.type("name=user", "admin");
@@ -26,21 +26,21 @@ public class TestDemo_gaoxin extends BaseTest{
 		
 		webtest.click("link=admin");
 		
-		webtest.click("link=Ê×Ò³");
+		webtest.click("link=ï¿½ï¿½Ò³");
 		
 	
 		
 	}
 	
 	
-//	Ê×Ò³Ç©µ½
+//	ï¿½ï¿½Ò³Ç©ï¿½ï¿½
 	//@Test
 	public void test02_sigin_daily() {
 		
 		if(webtest.isElementPresent("id=qiandaomiaoshu")) {
 			webtest.click("id=qiandaomiaoshu");
 		}
-		Assert.assertEquals("ÒÑÇ©µ½", webtest.getText("id=qiandaomiaoshu"));
+		Assert.assertEquals("ï¿½ï¿½Ç©ï¿½ï¿½", webtest.getText("id=qiandaomiaoshu"));
 		
 	}
 	@Test
@@ -50,26 +50,26 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.type("name=find", "das");
 		webtest.click("xpath=//button[@type='submit']");
 	}
-//	Ìø×ªÓÃ»§ÖÐÐÄ
+//	ï¿½ï¿½×ªï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Test
 	public void test04_toUserPage() throws InterruptedException {
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=ÓÃ»§ÖÐÐÄ");
+		webtest.click("link=ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
 		Thread.sleep(5000);
 	}
 	
 	@Test
 	public void test05_sigin_in() {
-		webtest.click("link=Ç©µ½");
+		webtest.click("link=Ç©ï¿½ï¿½");
 		
 		webtest.click("id=shanggeyue");
 	}
 	
 	@Test
 	public void test06_date_click() {
-		webtest.click("link=Ç©µ½");
+		webtest.click("link=Ç©ï¿½ï¿½");
 		
 		for(int i = 0;i<20;i++) {
 			webtest.click("id=shanggeyue");
@@ -81,27 +81,27 @@ public class TestDemo_gaoxin extends BaseTest{
 	public void test07_find_sore() throws InterruptedException {
 		webtest.open("/index.php/user/index/index.html");
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
-		webtest.click("link=ÎÒµÄ»ý·Ö");
+		webtest.click("link=ï¿½ÒµÄ»ï¿½ï¿½ï¿½");
 		
 	}
 	
 	@Test void test08_find_getScore() {
 		
-		webtest.click("link=»ñÈ¡»ý·Ö");
+		webtest.click("link=ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½");
 		
-		webtest.click("link=²é¿´ÎÒÓµÓÐ¶àÉÙ»ý·Ö");
+		webtest.click("link=ï¿½é¿´ï¿½ï¿½Óµï¿½Ð¶ï¿½ï¿½Ù»ï¿½ï¿½ï¿½");
 		
-		webtest.click("link=»ñÈ¡»ý·Ö");
+		webtest.click("link=ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½");
 	}
 	
 	@Test 
 	public void test09_find_getScore_sigin() {
 		
-		webtest.click("link=»ñÈ¡»ý·Ö");
+		webtest.click("link=ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½");
 		
 		webtest.runJs("window.scrollTo(0,document.body.scrollHeight)");
 		
-		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='²é¿´ÎÒÓµÓÐ¶àÉÙ»ý·Ö'])[1]/following::a[1]");
+		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='ï¿½é¿´ï¿½ï¿½Óµï¿½Ð¶ï¿½ï¿½Ù»ï¿½ï¿½ï¿½'])[1]/following::a[1]");
 		
 		
 	}
@@ -112,7 +112,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=»ý·ÖÕËµ¥");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½");
 	}
 	
 	@Test 
@@ -120,19 +120,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 		System.out.println(num);
@@ -150,19 +150,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[2]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[2]/td[2]");
 		
 		System.out.println(num);
@@ -174,19 +174,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[2]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[2]/td[2]");
 		
 		System.out.println(num);
@@ -198,19 +198,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[3]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[3]/td[2]");
 		
 	
@@ -223,19 +223,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[4]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[4]/td[2]");
 		
 	
@@ -247,19 +247,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[5]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[5]/td[2]");
 		
 	
@@ -271,19 +271,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[6]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[6]/td[2]");
 		
 		
@@ -295,19 +295,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[7]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[7]/td[2]");
 		
 	
@@ -320,19 +320,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[8]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[8]/td[2]");
 		
 		
@@ -344,19 +344,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[9]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[9]/td[2]");
 		
 		
@@ -368,19 +368,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr[10]/td[3]/div/input", "5");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr[10]/td[2]");
 		
 		
@@ -393,19 +393,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", null);
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 	
@@ -417,19 +417,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "str");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 	
@@ -441,19 +441,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "0");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -465,19 +465,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input","000");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -489,19 +489,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", Integer.MAX_VALUE+"");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -513,19 +513,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "1.0");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -537,19 +537,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "1.999999999");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -561,19 +561,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "1000000007");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -585,19 +585,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "-1");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -609,19 +609,19 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.open("/index.php/admin/index/index.html");
 		webtest.click("id=navbarDropdowny");
 		
-		webtest.click("link=¹ÜÀíºóÌ¨");
+		webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 		
 		webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 		
-		webtest.click("link=³É³¤ÉèÖÃ");
+		webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
-//		ÐÞ¸Ä»ý·ÖÖµ		
+//		ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 		webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr/td[3]/div/input", "-100000007");
 		
 		webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 		
 		webtest.open("/index.php/user/index/earnpoints.html");
-//		»ñÈ¡»ý·ÖÖµ
+//		ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 		String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr/td[2]");
 		
 
@@ -629,12 +629,12 @@ public class TestDemo_gaoxin extends BaseTest{
 	}
 	
 	
-//	ÉèÖÃÊý¾Ý¼¯
+//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½
 	String[] datas = {"0","-1","1000000007","1.0",null,"str",Integer.MAX_VALUE+"","1.99999"};
 	String[] result = {"0","-1","1000000007","1",null,"0",Integer.MAX_VALUE+"","1"};
 
 	
-//	indexÊÇ´Ó 2-10
+//	indexï¿½Ç´ï¿½ 2-10
 	
 	public void proviceData_table_test_index(int index) {
 		
@@ -643,19 +643,19 @@ public class TestDemo_gaoxin extends BaseTest{
 			webtest.open("/index.php/admin/index/index.html");
 			webtest.click("id=navbarDropdowny");
 			
-			webtest.click("link=¹ÜÀíºóÌ¨");
+			webtest.click("link=ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨");
 			
 			webtest.runJs("document.getElementById(\"jianyuluntansidebar\").scrollTop=10000");
 			
-			webtest.click("link=³É³¤ÉèÖÃ");
+			webtest.click("link=ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½");
 			
-//			ÐÞ¸Ä»ý·ÖÖµ		
+//			ï¿½Þ¸Ä»ï¿½ï¿½ï¿½Öµ		
 			webtest.typeAndClear("xpath=//tbody[@id='chengzhangtr']/tr["+index+"]/td[3]/div/input",datas[i]);
 			
 			webtest.click("xpath=//tbody[@id='chengzhangtr']/tr/td");
 			
 			webtest.open("/index.php/user/index/earnpoints.html");
-//			»ñÈ¡»ý·ÖÖµ
+//			ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
 			String num = webtest.getText("xpath=//tbody[@id='chengzhangtr']/tr["+index+"]/td[2]");
 			
 	
@@ -665,7 +665,7 @@ public class TestDemo_gaoxin extends BaseTest{
 	}
 	
 	
-	/*ÀûÓÃÒÔÉÏ·½·¨ÊµÏÖ´úÂëµÄ¸ß¶È¸´ÓÃ*/
+	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Êµï¿½Ö´ï¿½ï¿½ï¿½Ä¸ß¶È¸ï¿½ï¿½ï¿½*/
 	
 	
 
@@ -709,21 +709,21 @@ public class TestDemo_gaoxin extends BaseTest{
 	
 
 	
-	//Êý¾Ý¼¯
+	//ï¿½ï¿½ï¿½Ý¼ï¿½
 	/*
 	 * 
 
-Á¬Ðø¶þÔÂÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 0
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 0
 
-Á¬ÐøÈýÔÂÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 0
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 0
 
-Á¬Ðø°ëÄêÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 0
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 0
 
-Á¬ÐøÒ»ÄêÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 0
+ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 0
 	 * */
-	String[] check_str= {"Ç©µ½¿É»ñµÃ»ý·Ö: 5","Á¬ÐøÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5","Á¬Ðø3ÌìÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5"
-			,"Á¬ÐøÒ»ÖÜÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5","Á¬Ðø¶þÖÜÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5","Á¬ÐøÒ»ÔÂÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5"
-			,"Á¬Ðø¶þÔÂÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5","Á¬ÐøÈýÔÂÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5","Á¬Ðø°ëÄêÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5","Á¬ÐøÒ»ÄêÇ©µ½¿É»ñµÃ¶îÍâ»ý·Ö: 5"};
+	String[] check_str= {"Ç©ï¿½ï¿½ï¿½É»ï¿½Ã»ï¿½ï¿½ï¿½: 5","ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5","ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5"
+			,"ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5","ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5"
+			,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5","ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ç©ï¿½ï¿½ï¿½É»ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 5"};
 	
 	String[] path = {"name=checkin","name=checkincontinu","name=checkinthreedays","name=checkinweek",
 			"name=checkintwoweek","name=checkinmonth","name=checkintwomonth",
@@ -739,11 +739,11 @@ public class TestDemo_gaoxin extends BaseTest{
 		
 		webtest.typeAndClear(path[index], "5");
 		
-		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½ÉèÖÃ'])[2]/following::label[1]");
+		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'])[2]/following::label[1]");
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );
@@ -759,11 +759,11 @@ public class TestDemo_gaoxin extends BaseTest{
 		
 		webtest.typeAndClear(path[index], "5");
 		
-		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½ÉèÖÃ'])[2]/following::label[1]");
+		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'])[2]/following::label[1]");
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );
@@ -777,11 +777,11 @@ public class TestDemo_gaoxin extends BaseTest{
 		
 		webtest.typeAndClear(path[index], "5");
 		
-		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½ÉèÖÃ'])[2]/following::label[1]");
+		webtest.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'])[2]/following::label[1]");
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
@@ -798,7 +798,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
@@ -815,7 +815,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
@@ -832,7 +832,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
@@ -849,7 +849,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
@@ -866,7 +866,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
@@ -883,7 +883,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
@@ -901,7 +901,7 @@ public class TestDemo_gaoxin extends BaseTest{
 		webtest.click("id=formsubmit");
 		webtest.open("/index.php/user/index/checkin.html");
 		index++;
-		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©µ½»ý·Ö½±Àø'])[1]/following::p["+index+"]");
+		String num= webtest.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½'])[1]/following::p["+index+"]");
 		
 		
 		Assert.assertEquals(num,check_str[index-1] );		
