@@ -3,13 +3,13 @@ package com.firewolf.apitest_platform.controller;
 import com.firewolf.apitest_platform.domain.User;
 import com.firewolf.apitest_platform.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @RestController
 public class UserSgin {
@@ -45,7 +45,8 @@ public class UserSgin {
         User user = new User();
         user.setUsername(strName);
         user.setPassword(strW);
-        userMapper.insertUser(user);
+        int o = userMapper.insertUser(user);
+        System.out.println(o);
         //使用jsp
 
         //把数据保存到 request 作用域
@@ -59,4 +60,21 @@ public class UserSgin {
         out.close();
 
     }
+    @RequestMapping(value="/register",method= RequestMethod.POST)
+    @ResponseBody
+    public String register(@RequestBody User resister_user) {
+        User user0 = new User();
+        user0.setUsername(resister_user.getUsername());
+        user0.setPassword(resister_user.getPassword());
+        if(userMapper.findUser(resister_user)!=0){
+            return "用户名重复注册失败！";
+
+        }else
+        {
+            userMapper.insertUser(user0);
+            return "注册成功！";
+        }
+
+    }
+
 }
