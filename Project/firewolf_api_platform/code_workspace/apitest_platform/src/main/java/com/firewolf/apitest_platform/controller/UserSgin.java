@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class UserSgin {
 
@@ -31,6 +31,7 @@ public class UserSgin {
     /**
      * http://localhost:8080/sginUser?username=xiaozhu&password=123456789
      * */
+    @CrossOrigin
     @RequestMapping("/sginUser")
     public void sgin(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("=========接收了Ajax的请求=========");
@@ -60,17 +61,17 @@ public class UserSgin {
         out.close();
 
     }
+    @CrossOrigin
     @RequestMapping(value="/register",method= RequestMethod.POST)
     @ResponseBody
     public String register(@RequestBody User resister_user) {
         User user0 = new User();
         user0.setUsername(resister_user.getUsername());
         user0.setPassword(resister_user.getPassword());
-        if(userMapper.findUser(resister_user)!=0){
+        if(userMapper.findUser(resister_user)!=null){
             return "用户名重复注册失败！";
 
-        }else
-        {
+        }else{
             userMapper.insertUser(user0);
             return "注册成功！";
         }
