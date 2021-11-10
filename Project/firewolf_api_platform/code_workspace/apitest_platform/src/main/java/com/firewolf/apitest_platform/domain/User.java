@@ -5,6 +5,8 @@ public class User {
     private int user_id;
     private String username;
     private String password;
+    private String rpassword;
+
 
     public int getUser_id() {
         return user_id;
@@ -30,12 +32,17 @@ public class User {
         this.password = password;
     }
 
+    public String getRpassword() { return rpassword; }
+
+    public void setRpassword(String rpassword) { this.rpassword = rpassword; }
+
     @Override
     public String toString() {
         return "User{" +
                 "user_id=" + user_id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", rpassword='" + rpassword + '\'' +
                 '}';
     }
 }
