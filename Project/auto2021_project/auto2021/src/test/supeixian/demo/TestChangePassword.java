@@ -15,8 +15,8 @@ public class TestChangePassword extends BaseTest{
 	
 //	登录的方法，方便后面复用，减少代码重复量
 	public void login(String username,String password) {
-		webtest.open("");
-//		webtest.open("localhost/jianyuluntan_2.4.6/");
+//		webtest.open("");
+		webtest.open("localhost/jianyuluntan_2.4.6/");
 		
 		webtest.click("link=登录");
 		webtest.click("name=user");
