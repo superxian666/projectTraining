@@ -4,11 +4,37 @@
 <listeners>
 		<listener class-name="com.webtest.core.WebTestListener"></listener>
 	</listeners>
-	<test name="t2" preserve-order="true">
+	<test name="gaoxin" preserve-order="true">
 		<classes>
-			<class name="com.webtest.demo.XueliDemo"/>
-			
-			
+		    <class name="com.webtest.core.BaseTest"/>
+			<class name="test.gaoxin.demo.TestDemo_gaoxin"/>
+		</classes>
+	</test>
+	
+	<test name="supeixian" preserve-order="true">
+		<classes>
+		    <class name="com.webtest.core.BaseTest"/>
+		    <class name="test.supeixian.demo.TestMyTracks"/>
+			<class name="test.supeixian.demo.TestChangePassword"/>
+		</classes>
+	</test>
+	
+	
+	<test name="hanxinjie" preserve-order="true">
+		<classes>
+		    <class name="com.webtest.core.BaseTest"/>
+		    <class name="com.webtest.dataprovider.ExcelDataProvider"/>
+		    <class name="test.hanxinjie.demo.ExcelTest"/>
+		    <class name="test.hanxinjie.demo.TestMore"/>
+		    <class name="test.hanxinjie.demo.TestScore"/>
+			<class name="test.hanxinjie.demo.TestUser"/>
+		</classes>
+	</test>
+	
+	<test name="wangyan" preserve-order="true">
+		<classes>
+		    <class name="com.webtest.core.BaseTest"/>
+			<class name="test.wangyan.demo.Test1"/>
 		</classes>
 	</test>
 
