@@ -35,13 +35,13 @@ import com.webtest.utils.ReadProperties;
 public class BaseTest {
 
 	public  WebDriverEngine webtest;
-	private WebDriver driver;
+	public WebDriver driver;
 	public String driverType;
 
 	
 	
 
-	private WebDriver newWebDriver(String driverType) throws IOException {
+	public WebDriver newWebDriver(String driverType) throws IOException {
 		WebDriver driver = null;
 	 if (driverType.equalsIgnoreCase("firefox")) {
 		    String firefox_driver =ReadProperties.getPropertyValue("gecko_driver");
