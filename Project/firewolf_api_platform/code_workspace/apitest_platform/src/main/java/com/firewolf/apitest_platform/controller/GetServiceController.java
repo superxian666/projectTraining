@@ -2,6 +2,7 @@ package com.firewolf.apitest_platform.controller;
 
 import com.firewolf.apitest_platform.service.HttpClientUtils;
 import com.firewolf.apitest_platform.vo.CommonResult;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,7 +48,6 @@ public class GetServiceController {
             cr.setCode(0);//代表成功
             cr.setMsg("获取接口返回值成功");
             cr.setData(res);
-
         }else {
             cr.setCode(1);
             cr.setMsg("获取接口返回值失败");
