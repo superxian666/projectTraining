@@ -25,16 +25,11 @@ public interface GetServiceMapper {
      *     @Select("select password from user where username = #{username}")
      *     public String findUser(User user);
      * */
-    @Select("select * from case where url=#{url}")
+    @Select("select * from `case` where url=#{url}")
     public Case selectCaseByUrl(Case cas);
 
-    @Insert("insert into case values(#{id},#{cid},#{name},#{url},#{method},#{type})")
+    @Insert("insert into `case` values(#{id},#{cid},#{name},#{url},#{method},#{type})")
     public Case insertCase(Case cas);
 
-    @Insert("insert into collection values(#{cId},#{cName})")
-    public Collection insertCollection(Collection col);
-    @Select("select * from collection where cId=#{cId}")
-    public List<Collection> selectCollection(int cId);
-    @Select("select count(*) from collection")
-    public int countCollection();
+
 }
