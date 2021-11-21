@@ -1,4 +1,4 @@
-package com.firewolf.apitest_platform.controller;
+package com.firewolf.apitest_platform.controller.Service.httpclient;
 
 import com.firewolf.apitest_platform.domain.Case;
 import com.firewolf.apitest_platform.mapper.GetServiceMapper;
@@ -19,6 +19,8 @@ import java.io.IOException;
  * 2.将这个数据插入数据库，并且有唯一的标识 id collection_id
  *
  * 这个有的业务由其他的控制器来搞，这里的开发遵循最小逻辑单元。
+ *
+ * 问题： 递增的问题
  * */
 
 
@@ -50,7 +52,7 @@ public class GetServiceController {
             @RequestParam(value = "type",required = false)String type
     ) throws IOException {
         CommonResult cr = new CommonResult();
-        Case cas = new Case(cid,  name,  url,  method,  type);
+
 
 
         /**
@@ -69,9 +71,14 @@ public class GetServiceController {
         }
 
 //        如果查询为空 ，那么就把 case插入表
+        Case cas = new Case(cid,  name,  url,  method,  type);
         Case intable = dao.selectCaseByUrl(cas);
         if(intable==null){
-            dao.insertCase(cas);
+            /**
+             *  这里需要重新实例化一个对象，不实例化会报错。
+             * */
+            Case cas2 = new Case(cid,  name,  url,  method,  type);
+            dao.insertCase(cas2);
         }
 
         return cr;

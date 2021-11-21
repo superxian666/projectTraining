@@ -1,4 +1,4 @@
-package com.firewolf.apitest_platform.controller;
+package com.firewolf.apitest_platform.controller.Service.sgin;
 
 import com.firewolf.apitest_platform.domain.User;
 import com.firewolf.apitest_platform.mapper.UserMapper;
