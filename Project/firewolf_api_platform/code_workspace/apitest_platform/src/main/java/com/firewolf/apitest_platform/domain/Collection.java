@@ -1,54 +1,35 @@
 package com.firewolf.apitest_platform.domain;
 
 public class Collection {
-    private Integer id;
-    private String name;
-    private Integer user_id;
 
-    public Collection() {
+
+    private int cId;
+    private String cName;
+    public Collection(int cId, String cName) {
+        this.cId=cId;
+        this.cName=cName;
     }
 
-    public Collection(Integer id, String name, Integer user_id) {
-        this.id = id;
-        this.name = name;
-        this.user_id = user_id;
+    public int getcId() {
+        return cId;
     }
 
-    public Collection(String name, Integer user_id) {
-        this.name = name;
-        this.user_id = user_id;
+    public void setcId(int cId) {
+        this.cId = cId;
     }
 
-    public Integer getId() {
-        return id;
+    public String getcName() {
+        return cName;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setcName(String cName) {
+        this.cName = cName;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
-
     @Override
-    public String toString() {
-        return "collection{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", user_id=" + user_id +
-                '}';
+    public String toString(){
+        return "Collection{ "
+                +"cId="+this.cId+","
+                +"cName="+this.cName
+                + "}";
     }
 }
