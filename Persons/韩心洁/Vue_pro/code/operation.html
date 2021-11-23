@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        /* 三个大背景 */
+        #bg1{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: #07889B;
+        }
+        #bg2{
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            height: 92%;
+            width: 96%;
+            background-color: #C3D8DB;
+        }
+        #bg3{
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            height: 93%;
+            width: 81%;
+            background-color: #FFFEF4;
+        }
+        /* logo */
+        .logo_title{
+            position: relative;
+            color: #FFFEF4;
+            font-size: 32px;
+            font-weight: 700;
+            top: 0.5%;
+            left: 1%;
+        }
+        .file_pic{
+            position: relative;
+            height: 5.5%;
+            width: 2.5%;
+            top: 1%;
+            left: 1%;
+        }
+        .workspace{
+            position: relative;
+            color: #07889B;
+            font-size: 20px;
+            font-weight: 600;
+            top: 0%;
+            left: 2%;
+        }
+        /* 添加项目 按钮 */
+        #add_project{
+            position: relative;
+            color: #FFFEF4;
+            background-color: #07889B;
+            border: none;
+            font-size: 30px;
+            font-weight: 500;
+            height: 5.5%;
+            width: 2.5%;
+            top: 1%;
+            left: 3%;
+            border-radius: 10%;
+        }
+        /* api方法选择框 */
+        #get_or_post{
+            position: relative;
+            top: 6%;
+            left: 5%;
+            height: 8%;
+            width: 8%;
+            font-size: 21px;
+            font-weight: 500;
+            text-align: center;
+            background-color: #B5C9CC;
+            opacity: 0.8;
+            border-radius: 40px;
+            appearance: none;
+            outline: none;
+            border: none;
+        }
+        .get_or_post_op{
+            background-color: #B5C9CC;
+            color: rgb(97, 97, 97);
+        }
+        /* url输入框 */
+        #url_input{
+            position: relative;
+            left: 8%;
+            top: 6%;
+            height: 8%;
+            width: 60%;
+            border-radius: 30px;
+            background-color: #B5C9CC;
+            opacity: 0.8;
+            border: none;
+            padding-left: 2%;
+            font-size: 23px;
+            font-weight: 300;
+            color: rgb(97, 97, 97);
+            outline: none;
+        }
+        /* send按钮 */
+        .send_btn{
+            position: relative;
+            left: 11%;
+            top: 6%;
+            height: 8%;
+            width: 15%;
+            font-size: 23px;
+            font-weight: 500;
+            border-radius: 30px;
+            background-color: #B5C9CC;
+            opacity: 0.8;
+            border: none;
+        }
+        /* 数据div */
+        .data{
+            position: relative;
+            width: 100%;
+            height: 65%;
+            top: 5%;
+        }
+        /* 模块title */
+        .data_li{
+            list-style-type: none;
+            display: inline;
+            font-size: 20px;
+            margin: 8%;
+        }
+        /* 模块下划线 */
+        .li_param{
+            position: absolute;
+            width: 15%;
+            height: 0.2%;
+            background-color: orange;
+            left: 7%;
+            top: 5%;
+        }
+        .li_headers{
+            position: absolute;
+            width: 15%;
+            height: 0.2%;
+            background-color: orange;
+            left: 30%;
+            top: 5%;
+        }
+        .li_body{
+            position: absolute;
+            width: 15%;
+            height: 0.2%;
+            background-color: orange;
+            left: 52.3%;
+            top: 5%;
+        }
+        .li_tests{
+            position: absolute;
+            width: 15%;
+            height: 0.2%;
+            background-color: orange;
+            left: 73%;
+            top: 5%;
+        }
+        /* 模块div */
+        .data_div{
+            position: absolute;
+            height: 75%;
+            width: 100%;
+            top: 9%;
+        }
+        .title_th_div{
+            position: relative;
+            height: 10%;
+            width: 70%;
+            left: 14%;
+            background-color: #dfe8e9;
+        }
+        .li_title{
+            position: relative;
+            left: 0%;
+            list-style-type: none;
+            display: inline;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 19%;
+            font-size: 20px;
+        }
+        .data_td_div{
+            position: relative;
+            height: 80%;
+            width: 70%;
+            left: 14%;
+            background-color: #dfe8e9;
+            overflow-y: scroll;
+        }
+        .data_table{
+            position: relative;
+            width: 90%;
+            left: 6%;
+        }
+        .data_input{
+            width: 90%;
+            height: 30px;
+            border-radius: 30px;
+            background-color: white;
+            opacity: 0.7;
+            border: none;
+            padding-left: 2%;
+            font-size: 20px;
+            font-weight: 300;
+            color: rgb(97, 97, 97);
+            text-align: center;
+            margin: 2%;
+            outline: none;
+        }
+        /* 增加行 按钮 */
+        .add_li{
+            position: absolute;
+            color: #FFFEF4;
+            background-color: #dfe8e9;
+            border: none;
+            font-size: 30px;
+            font-weight: 500;
+            height: 11%;
+            width: 3%;
+            top: 6%;
+            left: 85%;
+            border-radius: 10%;
+        }
+        /* 响应输入框 */
+        #tests_text{
+            background: #dfe8e9;
+            position: relative;
+            height: 85%;
+            width: 70%;
+            top: 8%;
+            left: 14%;
+            border: none;
+            outline: none;
+            color: rgb(97, 97, 97);
+            font-size: 20px;
+            font-weight: 600;
+            resize:none;
+            padding: 1%;
+        }
+        /* 响应区 */
+        .resp_div{
+            position: absolute;
+            width: 100%;
+            height: 26%;
+            top: 73%;
+        }
+        /* response */
+        .resp_word{
+            position: relative;
+            left: 2%;
+        }
+        /* hr */
+        .part{
+            position: absolute;
+            top: 10%;
+            left: 2%;
+            width: 95%;
+            height: 0.2%;
+            background-color: orange;
+        }
+        /* 响应返回div */
+        .resp_data{
+            position: relative;
+            overflow-y: scroll;
+            width: 98%;
+            height: 80%;
+            left: 2%;
+            top: 8%;
+            color: rgb(97, 97, 97);
+            word-break :break-all;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg1">
+        <!-- logo -->
+        <span class="logo_title">POSTTEAM</span>
+        <div id="bg2">
+            <!-- 左侧标识、按钮 -->
+            <img src="../pic/file_pic.png" class="file_pic">
+            <span class="workspace">workspace</span>
+            <button id="add_project">+</button>
+            <div id="bg3">
+                <!-- api方法选择框 -->
+                <select id="get_or_post" v-model="apimethods">
+                    <option value="get" class="get_or_post_op">GET</option>
+                    <option value="post" class="get_or_post_op">POST</option>
+                </select>
+                <!-- url输入框 -->
+                <input type="text" id="url_input" v-model="get_url" @change="url_change">
+                <!-- send按钮 -->
+                <button class="send_btn" @click="send_click">Send</button>
+                <div class="data">
+                    <!-- 选择模块 -->
+                    <ul>
+                        <li class="data_li" @click="li_show_param_obj">Param</li>
+                        <li class="data_li" @click="li_show_headers_obj">Headers</li>
+                        <li class="data_li" @click="li_show_body_obj">Body</li>
+                        <li class="data_li" @click="li_show_tests_obj">Tests</li>
+                    </ul>
+                    <!-- 模块下划线 -->
+                    <hr class="li_param" v-show="li_show_param">
+                    <hr class="li_headers" v-show="li_show_headers">
+                    <hr class="li_body" v-show="li_show_body">
+                    <hr class="li_tests" v-show="li_show_tests">
+                    <!-- params模块 -->
+                    <div class="data_div" v-show="params_show">
+                        <div class="title_th_div">
+                            <ul>
+                                <li class="li_title">KEY</li>
+                                <li class="li_title">VALUE</li>
+                            </ul>
+                        </div>
+                        <div class="data_td_div">
+                            <table class="data_table" @change="params_key_change">
+                                <tr v-for="(item,index) in params_list" :key="index">
+                                    <td><input type="text" class="data_input" v-model="input_params_key[index]" ></td>
+                                    <td><input type="text" class="data_input" v-model="input_params_value[index]"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- 增加一行 按钮 -->
+                        <button class="add_li" @click="add_params_li">+</button>
+                    </div>
+                    <!-- headers模块 -->
+                    <div class="data_div" v-show="headers_show">
+                        <div class="title_th_div">
+                            <ul>
+                                <li class="li_title">KEY</li>
+                                <li class="li_title">VALUE</li>
+                            </ul>
+                        </div>
+                        <div class="data_td_div">
+                            <table class="data_table" @change="headers_key_change">
+                                <tr v-for="(item,index) in headers_list" :key="index">
+                                    <td><input type="text" class="data_input" v-model="input_headers_key[index]" ></td>
+                                    <td><input type="text" class="data_input" v-model="input_headers_value[index]"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- 增加一行 按钮 -->
+                        <button class="add_li" @click="add_headers_li">+</button>
+                    </div>
+                    <!-- body模块 -->
+                    <div class="data_div" v-show="body_show">
+                        <div class="title_th_div">
+                            <ul>
+                                <li class="li_title">KEY</li>
+                                <li class="li_title">VALUE</li>
+                            </ul>
+                        </div>
+                        <div class="data_td_div">
+                            <table class="data_table" @change="body_key_change">
+                                <tr v-for="(item,index) in body_list" :key="index">
+                                    <td><input type="text" class="data_input" v-model="input_body_key[index]" ></td>
+                                    <td><input type="text" class="data_input" v-model="input_body_value[index]"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- 增加一行 按钮 -->
+                        <button class="add_li" @click="add_body_li">+</button>
+                    </div>
+                    <!-- tests模块 -->
+                    <div class="data_div" v-show="tests_show">
+                        <!-- 文本输入框 -->
+                        <textarea name="" id="tests_text" cols="30" rows="10"></textarea>
+
+                    </div>
+                </div>
+                <!-- 响应值区域 -->
+                <div class="resp_div">
+                    <span class="resp_word">RESPONSE</span>
+                    <hr class="part">
+                    <div class="resp_data">
+                        {{resp_body}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="https://www.bootcdn.cn/axios/"></script>
+<script>
+    Vue.config.productionTip=false //阻止 vue 在启动时生成生产提示
+
+    new Vue({
+        el:'#bg1',
+        data:{
+            // url方法
+            apimethods:'get',
+
+            // 4个点击下划线
+            li_show_param:true,
+            li_show_headers:false,
+            li_show_body:false,
+            li_show_tests:false,
+
+            // 4个显示框
+            params_show:true,
+            headers_show:false,
+            body_show:false,
+            tests_show:false,
+
+            // 增加的表格数组
+            params_list:[],
+            headers_list:[],
+            body_list:[],
+            // url
+            get_url:'',
+
+            // 输入框的值
+            input_params_key:[],
+            input_params_value:[],
+            input_headers_key:[],
+            input_headers_value:[],
+            input_body_key:[],
+            input_body_value:[],
+
+            // 表格对象
+            obj_params:{},
+            obj_body:{},
+            obj_headers:{},
+            trans_body:{},
+
+            // 响应体
+            resp_body:''
+        },
+        // 4个页面点击显示
+        methods: {
+            li_show_param_obj(){
+                this.li_show_param=true
+                this.li_show_headers=false
+                this.li_show_body=false
+                this.li_show_tests=false
+
+                this.params_show=true
+                this.headers_show=false
+                this.body_show=false
+                this.tests_show=false
+            },
+            li_show_headers_obj(){
+                this.li_show_headers=true
+                this.li_show_param=false
+                this.li_show_body=false
+                this.li_show_tests=false
+
+                this.params_show=false
+                this.headers_show=true
+                this.body_show=false
+                this.tests_show=false
+            },
+            li_show_body_obj(){
+                this.li_show_body=true
+                this.li_show_headers=false
+                this.li_show_param=false
+                this.li_show_tests=false
+
+                this.params_show=false
+                this.headers_show=false
+                this.body_show=true
+                this.tests_show=false
+            },
+            li_show_tests_obj(){
+                this.li_show_tests=true
+                this.li_show_param=false
+                this.li_show_headers=false
+                this.li_show_body=false
+
+                this.params_show=false
+                this.headers_show=false
+                this.body_show=false
+                this.tests_show=true
+            },
+            // 增加一行表格
+            add_params_li(){
+                this.params_list.push({
+                    key:'',
+                    value:''
+                })
+            },
+            add_headers_li(){
+                this.headers_list.push({
+                    key:'',
+                    value:''
+                })
+            },
+            add_body_li(){
+                this.body_list.push({
+                    key:'',
+                    value:''
+                })
+            },
+            // 当url改变，实现url拆分并填入params表格
+            url_change(){
+                this.params_list=[]
+                if(this.get_url.includes('?')){
+                    let urlarg=this.get_url.slice(this.get_url.indexOf('?')+1)
+                    let arr = urlarg.split('&').map(function (item, index, arr) {
+                        return item.split('=')
+                    })
+                    for(var i=0;i<arr.length;i++){
+                        this.add_params_li()
+                        this.input_params_key[i]=arr[i][0]
+                        this.input_params_value[i]=arr[i][1]
+                        
+                    }
+                }
+                
+                
+            },
+            // 当params数据改变，实现url拼接
+            params_key_change(){
+                this.obj_params={}
+                for(var n=0;n<this.input_params_key.length;n++){
+                        const key=this.input_params_key[n]
+                        const value=this.input_params_value[n]
+                        this.$set(this.obj_params,key,value)
+                }
+                let new_url=this.get_url
+                if(this.get_url.includes('?')){
+                    new_url=this.get_url.substring(0,this.get_url.lastIndexOf("?"))
+                }
+                this.get_url=new_url+'?'
+                for(let item in this.obj_params){
+                    if(item){
+                        this.get_url=this.get_url+'&'+item+'='+this.obj_params[item]
+                    }
+                }
+
+                // this.params_list=[]
+                // if(this.get_url.includes('?')){
+                //     let urlarg=this.get_url.slice(this.get_url.indexOf('?')+1)
+                //     let arr = urlarg.split('&').map(function (item, index, arr) {
+                //         return item.split('=')
+                //     })
+                //     for(var i=0;i<arr.length-1;i++){
+                //         this.add_params_li()
+                //         this.input_params_key[i]=arr[i+1][0]
+                //         this.input_params_value[i]=arr[i+1][1]
+                        
+                //     }
+                // }
+            },
+            // 当headers里的数据改变，更新请求头对象
+            headers_key_change(){
+                this.obj_headers={}
+                let req_headers='{'
+                for(var n=0;n<this.input_headers_key.length;n++){
+                        const key=this.input_headers_key[n]
+                        const value=this.input_headers_value[n]
+                        this.$set(this.obj_headers,key,value)
+                }
+                for(let item in this.obj_body){
+                    req_headers=req_headers+item+':'+this.obj_headers[item]+'; '
+                }
+                req_headers=req_headers+'}'
+                console.log(req_headers)
+            },
+            // 当body里的值改变，更新请求体对象
+            body_key_change(){
+                this.obj_body={}
+                let req_body='{'
+                for(var n=0;n<this.input_body_key.length;n++){
+                        const key=this.input_body_key[n]
+                        const value=this.input_body_value[n]
+                        this.$set(this.obj_body,key,value)
+                }
+                for(let item in this.obj_body){
+                    req_body=req_body+item+':'+this.obj_body[item]+'; '
+                }
+                req_body=req_body+'}'
+                console.log(req_body)
+            },
+            send_click(){
+                this.postRegisterInfo()
+            },
+            // axios函数
+            postRegisterInfo(){
+                let url="xxx"
+                axios.post(url,{
+                    "apiMethods":this.apimethods + '',
+                    "url":this.get_url + '',
+                    "headers":this.obj_headers + '',
+                    "body":this.obj_body + ''
+                }).then((code)=>{
+                    if(code==0){
+                        this.resp_body=data
+                    }else{
+                        this.resp_body=msg
+                    }
+                })
+            }
+        },
+    })
+</script>
+</html>

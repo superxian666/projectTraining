@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--引入vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="abc" align="center">
+        <p>{{word}}</p>
+          
+        <table>
+  
+          <tr>
+            <td>用户名：</td>
+            <td><input type="text" id="username" v-model="user"></td>
+          </tr>
+  
+          <tr>
+            <td>密码：</td>
+            <td><input type="text" id="password" v-model="pwd"></td>
+          </tr>
+  
+   
+
+          <tr>
+            <td>操作：</td>
+            <td><input type="button" value="注册" class="sigin" @click="sign"></td>
+          </tr>
+  
+  
+  
+  
+        </table>
+          
+        <br/>
+        <div id="mydiv">等待更新数据</div>
+        <span v-model="resp"></span>
+      </div>
+      
+</body>
+<script src="../axios/axios.min.js"></script>
+<script>
+  Vue.config.productionTip=false //阻止 vue 在启动时生成生产提示
+  const vm=new Vue({
+    el:'#abc',
+    data:{
+      word:'注册',
+      user:'',
+      pwd:'',
+      resp:''
+    },
+    methods:{
+      // getInfo(){
+      //   axios.get("http://localhost:8080/sginUser?username="+this.user+"&password="+this.pwd)
+      //   .then((response)=>{
+      //     console.log(response);
+      //     var responseTxt = response['data'];
+      //     alert(responseTxt)
+      //     this.resp=responseTxt
+      //   })
+      // },
+      postInfo(){
+        let url="http://localhost:8080/sginUser"
+        let params=new URLSearchParams()
+        params.append("username",this.user)
+        params.append("password",this.pwd)
+        axios.post(url,params).then((response)=>{
+          console.log(response);
+          var responseTxt = response['data'];
+          alert(responseTxt)
+          this.resp=responseTxt
+        })
+
+      },
+      sign(){
+        this.postInfo()
+      }
+    }
+  })
+</script>
+</html>
