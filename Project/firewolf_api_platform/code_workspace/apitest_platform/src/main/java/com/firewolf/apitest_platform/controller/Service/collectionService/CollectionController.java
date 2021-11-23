@@ -16,13 +16,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/collectionService")
+/**
+ * 高昕  2021 11 23
+ * */
 public class CollectionController {
     @Autowired
     private CaseMapper case_dao;
     @Autowired
     private CollectionMapper collection_dao;
     /**
-     *  1.实现增加collection操作
+     *  71.实现增加collection操作
      *  http://localhost:8080/collectionService/add
      *  2.实现删除collection操作
      *  http://localhost:8080/collectionService/delete
