@@ -5,6 +5,8 @@ import com.firewolf.apitest_platform.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author superxian
  * @date 2021/11/10 10:18
@@ -20,7 +22,7 @@ public class UserSgin {
      * @return*/
     @CrossOrigin
     @PostMapping(value="/register",consumes = "application/json;charset=UTF-8")
-    public String register(@RequestBody User resister_user) {
+    public String register(@RequestBody User resister_user, HttpServletResponse response) {
 
         String retusername=resister_user.getUsername();
         String retpassword=resister_user.getPassword();

@@ -1,6 +1,7 @@
 package com.firewolf.apitest_platform.controller.Service.httpclient;
 
 import com.firewolf.apitest_platform.domain.Case;
+import com.firewolf.apitest_platform.mapper.CaseMapper;
 import com.firewolf.apitest_platform.mapper.GetServiceMapper;
 import com.firewolf.apitest_platform.service.HttpClientUtils;
 import com.firewolf.apitest_platform.vo.CommonResult;
@@ -32,6 +33,8 @@ public class GetServiceController {
 
     @Autowired
     private GetServiceMapper dao;
+    @Autowired
+    private CaseMapper case_dao;
     /**
      * post方式接收数据param为url,用户选择的请求方式 这里一定是get
      * 接收到的请求体 比如表单中的method = get,url=****
@@ -78,7 +81,7 @@ public class GetServiceController {
              *  这里需要重新实例化一个对象，不实例化会报错。
              * */
             Case cas2 = new Case(cid,  name,  url,  method,  type);
-            dao.insertCase(cas2);
+            case_dao.updateCase(cas2);
         }
 
         return cr;

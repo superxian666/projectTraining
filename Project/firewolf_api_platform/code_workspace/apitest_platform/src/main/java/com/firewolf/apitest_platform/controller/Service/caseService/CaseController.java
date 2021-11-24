@@ -67,7 +67,7 @@ public class CaseController {
         if(res!=null){
             cr.setCode(0);//代表成功
             cr.setMsg("创建case成功");
-            cr.setData("");
+            cr.setData(cas);
         }else {
             cr.setCode(1);
             cr.setMsg("创建case失败");

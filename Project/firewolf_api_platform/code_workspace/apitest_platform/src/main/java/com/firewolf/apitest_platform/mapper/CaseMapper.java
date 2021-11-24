@@ -24,6 +24,11 @@ public interface CaseMapper {
     public int deleteCase(Integer id);
     @Update("update `case` set name=#{name} where id=#{id}")
     public int renameCase(String name,Integer id);
+    /**
+     * 这个查询用在了get查询上
+     * */
+    @Update("update `case` set name=#{name},url= #{url},method=#{method},type=#{type}")
+    public int updateCase(Case cas);
 
 
 }
