@@ -1,10 +1,12 @@
 package com.firewolf.apitest_platform.controller.Service.caseService;
 
 import com.firewolf.apitest_platform.domain.Case;
+import com.firewolf.apitest_platform.domain.User;
 import com.firewolf.apitest_platform.mapper.CaseMapper;
 import com.firewolf.apitest_platform.vo.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,10 +32,12 @@ public class CaseController {
     @RequestMapping(value = "/rename")
     @ResponseBody
     public CommonResult rename(
-            @RequestParam(value = "name",required = true)String name,
-            @RequestParam(value = "id",required = true)Integer id
-    ){
-
+//            @RequestParam(value = "name",required = true)String name,
+//            @RequestParam(value = "id",required = true)Integer id
+            @RequestBody User user
+            ){
+        String name = user.getUsername();
+        Integer id = user.getUser_id();
         CommonResult cr = new CommonResult();
         Integer res = case_dao.renameCase(name,id);
         if(res!=null){
@@ -54,15 +58,18 @@ public class CaseController {
     @ResponseBody
     @RequestMapping(value = "/createCase")
     public CommonResult createCase(
-            @RequestParam(value = "cid",required = true)Integer cid,//collection 的 id
-            @RequestParam(value = "url",required = false)String url,
-            @RequestParam(value = "name",required = true)String name,
-            @RequestParam(value = "method",required = false)String method,
-            @RequestParam(value = "type",required = false)String type
+//            @RequestParam(value = "cid",required = true)Integer cid,//collection 的 id
+//            @RequestParam(value = "url",required = false)String url,
+//            @RequestParam(value = "name",required = true)String name,
+//            @RequestParam(value = "method",required = false)String method,
+//            @RequestParam(value = "type",required = false)String type
+            @RequestBody Case cas
     ){
+        Integer cid = cas.getCid();
+
         CommonResult cr = new CommonResult();
 //        public Case(Integer cid, String name, String url, String method, String type) {
-        Case cas = new Case(cid,name,url,method,type);
+
         Integer res = case_dao.insertCase(cas);
         if(res!=null){
             cr.setCode(0);//代表成功
@@ -81,10 +88,10 @@ public class CaseController {
     @ResponseBody
     @RequestMapping(value = "/delete")
     public CommonResult deleteCase(
-            @RequestParam(value = "id",required = true)Integer id
+            @RequestBody Case cas
     ){
         CommonResult cr = new CommonResult();
-        Integer res = case_dao.deleteCase(id);
+        Integer res = case_dao.deleteCase(cas.getId());
         if(res!=null){
             cr.setCode(0);//代表成功
             cr.setMsg("删除case成功");

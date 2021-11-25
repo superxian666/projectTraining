@@ -14,7 +14,8 @@ public class ParternMatcher {
 //        String content = "  <input type=\"hidden\" name=\"csrf_token\" value=\"773a1ea35125aa44\"/>";
 //        Pattern pattern = Pattern.compile("  <input type=\"hidden\" name=\"csrf_token\" value=\"(\\S*)\"/>");
 
-
+        System.out.println(content);
+        System.out.println(parttern);
         Pattern pattern = Pattern.compile(parttern);
 //		2.创建一个匹配器对象
 
@@ -33,8 +34,17 @@ public class ParternMatcher {
 //    public static void main(String[] args) {
 //
 //        System.out.println(ParternMatcher.searchToken(
-//                "  <input type=\"hidden\" name=\"csrf_token\" value=\"773a1ea35125aa44\"/>"
-//                ,"  <input type=\"hidden\" name=\"csrf_token\" value=\"(\\S*)\"/>"));
+//                "value=\"773a1ea35125aa44\""
+//                ,"value=\"(\\S*)\""));
+//
+//        System.out.println(ParternMatcher.searchToken(
+//                "value=\"773a1ea35125aa44\""
+//                ,"value=\"(\\S*)\""));
+//
+//        String res = "value=\"(\\S*)\"";
+//        for(int i=0;i<res.length();i++){
+//            System.out.println(res.charAt(i));
+//        }
 //    }
 
 }

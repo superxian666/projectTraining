@@ -47,12 +47,13 @@ public class GetServiceController {
     @PostMapping(value="/doService/getServe.do")
     @ResponseBody
     public CommonResult getServe(
-            HttpServletRequest request,
-            @RequestParam(value = "cid",required = false)Integer cid,
-            @RequestParam(value = "url",required = true)String url,
-            @RequestParam(value = "name",required = false)String name,
-            @RequestParam(value = "method",required = false)String method,
-            @RequestParam(value = "type",required = false)String type
+//            HttpServletRequest request,
+//            @RequestParam(value = "cid",required = false)Integer cid,
+//            @RequestParam(value = "url",required = true)String url,
+//            @RequestParam(value = "name",required = false)String name,
+//            @RequestParam(value = "method",required = false)String method,
+//            @RequestParam(value = "type",required = false)String type
+            @RequestBody Case cas
     ) throws IOException {
         CommonResult cr = new CommonResult();
 
@@ -61,7 +62,7 @@ public class GetServiceController {
         /**
          * 获取后把他插入到表中，这里应该怎么设计呢？
          * */
-        String res = HttpClientUtils.getOnly(url);
+        String res = HttpClientUtils.getOnly(cas.getUrl());
 
         if(res!=null){
             cr.setCode(0);//代表成功
@@ -74,13 +75,13 @@ public class GetServiceController {
         }
 
 //        如果查询为空 ，那么就把 case插入表
-        Case cas = new Case(cid,  name,  url,  method,  type);
+
         Case intable = dao.selectCaseByUrl(cas);
         if(intable==null){
             /**
              *  这里需要重新实例化一个对象，不实例化会报错。
              * */
-            Case cas2 = new Case(cid,  name,  url,  method,  type);
+            Case cas2 = cas;
             case_dao.updateCase(cas2);
         }
 

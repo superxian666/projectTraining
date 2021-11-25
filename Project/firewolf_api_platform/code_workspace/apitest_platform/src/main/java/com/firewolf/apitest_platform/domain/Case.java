@@ -12,6 +12,16 @@ public class Case {
     private String method;
     private String type;
 
+    private String body;
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
     public Case() {
     }
 
@@ -30,6 +40,17 @@ public class Case {
         this.url = url;
         this.method = method;
         this.type = type;
+    }
+
+    public Case(Integer id, Integer cid, String name, String url, String method, String type, String body) {
+
+        this.id = id;
+        this.cid = cid;
+        this.name = name;
+        this.url = url;
+        this.method = method;
+        this.type = type;
+        this.body = body;
     }
 
     public Integer getId() {

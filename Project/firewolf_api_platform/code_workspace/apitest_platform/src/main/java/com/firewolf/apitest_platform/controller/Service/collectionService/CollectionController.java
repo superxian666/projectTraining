@@ -37,13 +37,12 @@ public class CollectionController {
     @RequestMapping(value = "/add")
     @ResponseBody
     public CommonResult addCollection(
-            @RequestParam(value = "name",required = true)String name,
-            @RequestParam(value = "user_id",required = true)Integer user_id
+//            @RequestParam(value = "name",required = true)String name,
+//            @RequestParam(value = "user_id",required = true)Integer user_id
+            @RequestBody Collection collection
     ){
         CommonResult cr = new CommonResult();
-        Collection collection = new Collection();
-        collection.setName(name);
-        collection.setUser_id(user_id);
+
 
         Integer res=collection_dao.insertCollection(collection);
 
@@ -67,10 +66,11 @@ public class CollectionController {
     @RequestMapping(value = "/delete")
     @ResponseBody
     public CommonResult deleteCollection(
-            @RequestParam(value = "id",required = true)Integer id
+//            @RequestParam(value = "id",required = true)Integer id
+            @RequestBody Collection collection
     ){
         CommonResult cr = new CommonResult();
-        Integer res = collection_dao.deleteCollection(id);
+        Integer res = collection_dao.deleteCollection(collection.getId());
 
 
         if(res!=null){

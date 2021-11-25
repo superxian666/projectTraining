@@ -11,6 +11,9 @@ import java.util.List;
 public interface CaseMapper {
     @Select("select name from `case` where cid=#{cid}")
     public List<String> selectNameByCid(Integer cid);
+
+    @Select("select * from `case` where cid=#{cid}")
+    public List<Case> selectCaseByCid(Integer cid);
     /**
      * 对应CaseController的dao查询
      * 1. update name
