@@ -1,40 +1,29 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
 
 <suite name="s1" verbose="1" parallel="none">
-<listeners>
-		<listener class-name="com.webtest.core.WebTestListener"></listener>
-	</listeners>
-	<test name="gaoxin" preserve-order="true">
+
+	<test name="test1" preserve-order="true">
 		<classes>
-		    <class name="com.webtest.core.BaseTest"/>
+		
 			<class name="test.gaoxin.demo.TestDemo_gaoxin"/>
-		</classes>
-	</test>
-	
-	<test name="supeixian" preserve-order="true">
-		<classes>
-		    <class name="com.webtest.core.BaseTest"/>
-		    <class name="test.supeixian.demo.TestMyTracks"/>
-			<class name="test.supeixian.demo.TestChangePassword"/>
-		</classes>
-	</test>
-	
-	
-	<test name="hanxinjie" preserve-order="true">
-		<classes>
-		    <class name="com.webtest.core.BaseTest"/>
-		    <class name="com.webtest.dataprovider.ExcelDataProvider"/>
-		    <class name="test.hanxinjie.demo.ExcelTest"/>
-		    <class name="test.hanxinjie.demo.TestMore"/>
-		    <class name="test.hanxinjie.demo.TestScore"/>
+			
+			
+			<class name="test.hanxinjie.demo.ExcelTest"/>
+			<class name="test.hanxinjie.demo.TestMore"/>
+			<class name="test.hanxinjie.demo.TestScore"/>
 			<class name="test.hanxinjie.demo.TestUser"/>
-		</classes>
-	</test>
-	
-	<test name="wangyan" preserve-order="true">
-		<classes>
-		    <class name="com.webtest.core.BaseTest"/>
+			
+
+		
+			<class name="test.supeixian.demo.TestMyTracks"/>
+			<class name="test.supeixian.demo.TestChangePassword"/>
+			
 			<class name="test.wangyan.demo.Test1"/>
+			
+			<class name="test.zhuzhenglin.demo.DemoBackstage"/>
+			<class name="test.zhuzhenglin.demo.DemoLogin"/>
+			
 		</classes>
 	</test>
 

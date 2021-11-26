@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+       <!-- 官网提供的axios在线地址 -->
+       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+       <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+       <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+         #bg{
+            height:100%;
+            width:100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+            background-color: #F7F5E5;
+        }
+        #theam{
+            background-color: #07889B;
+            height: 65%;
+            width: 100%;
+            top: 10%;
+            left: 0;
+            position: absolute;
+        }
+        #word{
+            font-size: 80px;
+            text-align: center;
+            top: 20%;
+            color:#F7F5E5;
+            position: relative;
+        }
+        #btn{
+            position: relative;
+            top: 70%;
+            height: 20%;
+            width: 100%;
+            background-color: #F7F5E5;
+        }
+        #denglu{
+            font-size: 50px;
+            width: 15%;
+            height: 65%;
+            border-radius: 10px;
+            border: none;
+            background-color: #07889B;
+            color: #F7F5E5;
+            font-size: 35px;
+            font-weight: 900;
+            left: 25%;
+            bottom: 0%;
+            position: relative;
+        }
+        #zhuce{
+            font-size: 50px;
+            width: 15%;
+            height: 65%;
+            border-radius: 10px;
+            border: none;
+            background-color: #07889B;
+            color: #F7F5E5;
+            font-size: 35px;
+            font-weight: 900;
+            left: 45%;
+            bottom: 0%;
+            position: relative;
+        }
+        .logo{
+            position: relative;
+            width: 4%;
+            height: 8%;
+            top: 1%;
+        }
+        .text{
+            color: #FC8737;
+            font-size: 25px;
+            font-weight: 800;
+            top: 3%;
+            position: absolute;
+        }
+        .login_page{
+            position: absolute;
+            background-color:rgba(247, 245, 229, 0.8);
+            height: 75%;
+            width: 70%;
+            top: 46%;
+            left:50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            border: 3px solid #FC8737
+        }
+        .tips{
+            position: relative;
+            top: 25%;
+            left: 24%;
+            color: grey;
+        }
+        .username{
+            position: relative;
+            height: 25%;
+            width: 90%;
+            top: 10%;
+            left: 5%;
+            /* background: #000; */
+        }
+        .user_name{
+            color: #52658F;
+            font-size: 33px;
+            font-weight: 700;
+            top: 29%;
+            position: relative;
+            left: 7%;
+            text-align: left;
+            width: 60%;
+            height: 30%;
+        }
+        #user_name_input{
+            position: relative;
+            left: 7%;
+            top: 22%;
+            width: 65%;
+            height: 33%;
+            background-color: rgba(247, 245, 229, 0.8);
+            text-align: left;
+            border: 4px solid rgba(82, 101, 143, 100);
+            font-size: 30px;
+            color: grey;
+        }
+        
+        .userpassword{
+            position: relative;
+            height: 25%;
+            width: 90%;
+            top: 8%;
+            left: 5%;
+        }
+        .user_password{
+            color: #52658F;
+            font-size: 33px;
+            font-weight: 700;
+            top: 25%;
+            position: relative;
+            left: 10%;
+            text-align: left;
+            width: 60%;
+            height: 30%;
+        }
+        #user_password_input{
+            position: relative;
+            left: 10%;
+            top: 18%;
+            width: 65%;
+            height: 33%;
+            background-color: rgba(247, 245, 229, 0.8);
+            text-align: left;
+            border: 4px solid rgba(82, 101, 143, 100);
+            font-size: 30px;
+            color: grey;
+        }
+        .user_confirmpassword{
+            color: #52658F;
+            font-size: 33px;
+            font-weight: 700;
+            top: 25%;
+            position: relative;
+            left: 1%;
+            text-align: left;
+            width: 160px;
+            height: 48px;
+        }
+        #confirm_password_input{
+            position: relative;
+            left: 0%;
+            top: 20%;
+            width: 65%;
+            height: 60%;
+            background-color: rgba(247, 245, 229, 0.8);
+            text-align: left;
+            border: 4px solid rgba(82, 101, 143, 100);
+            font-size: 30px;
+            color: grey;
+        }
+        .login_page_btn{
+            position: relative;
+            top: 10%;
+            height: 33%;
+            width: 100%;
+        }
+        .register_page_btn{
+            position: relative;
+            top: 40%;
+            width: 100%;
+        }
+        #login_page_denglu{
+            position: relative;
+            left: 22%;
+            top: 8%;
+            width: 20%;
+            height: 50%;
+            border-radius: 20px;
+            background-color: rgba(7, 136, 155, 0.8);
+            color: rgba(247, 245, 229, 100);
+            font-size: 35px;
+            font-weight: 600;
+            border: 2px solid rgba(7, 136, 155, 0.6);
+        }
+        #login_page_cancle{
+            position: relative;
+            left: 35%;
+            top: 8%;
+            width: 20%;
+            height: 50%;
+            border-radius: 20px;
+            background-color: rgba(142, 142, 142, 0.8);
+            color: rgba(247, 245, 229, 0.8);
+            font-size: 35px;
+            font-weight: 600;
+            border: 2px solid rgba(220, 224, 231, 0.8);
+        }
+        #success_login_tips{
+            position: relative;
+            font-size: 30px;
+            font-weight: 600;
+            color: rgba(7, 136, 155, 0.8);
+            top: 0%;
+            height: 30%;
+            text-align: center;
+        }
+        .username_tips{
+            position: relative;
+            top: 25%;
+            left: 24%;
+            color: red;
+        }
+        .userpwd_tips{
+            position: relative;
+            top: 25%;
+            left: 24%;
+            color: red;
+        }
+        .register_page{
+            position: absolute;
+            background-color:rgba(247, 245, 229, 0.8);
+            height: 75%;
+            width: 70%;
+            top: 46%;
+            left:50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            border: 3px solid #FC8737
+        }
+        .denglu_success{
+            position: relative;
+            left: 37%;
+            top: 20%;
+            width: 20%;
+            height: 20%;
+            color: rgba(7, 136, 155, 0.8);
+            font-size: 36px;
+        }
+        .zhuce_name{
+            position:relative;
+            width: 70%;
+            top: 10%;
+            left: 25%;
+            font-size: 20px;
+            color: rgba(136, 136, 136, 100);
+        }
+        .zhuce_name_false_tips{
+            position:relative;
+            width: 70%;
+            top: 10%;
+            left: 25%;
+            font-size: 20px;
+            color: red;
+        }
+        .zhuce_password{
+            position:relative;
+            width: 70%;
+            left: 25%;
+            top:15%;
+            font-size: 20px;
+            color: rgba(136, 136, 136, 100);
+        }
+        .zhuce_password_false_tips{
+            position:relative;
+            width: 70%;
+            left: 25%;
+            top:15%;
+            font-size: 20px;
+            color: red;
+        }
+        .zhuce_confirmpwd{
+            position:relative;
+            width: 70%;
+            left: 25%;
+            top:20%;
+            font-size: 20px;
+            color: rgba(136, 136, 136, 100);
+        }
+        .username_jpg{
+            position: relative;
+            top: -70%;
+            left:87%;
+            height: 10%;
+            width: 10%;
+        }
+        .password_jpg{
+            position: relative;
+            top: -60%;
+            left:87%;
+            height: 10%;
+            width: 10%;
+        } 
+        .confirmpassword_jpg{
+            position: relative;
+            top: -55%;
+            left:87%;
+            height: 10%;
+            width: 10%;
+        }
+        .register_div{
+            position: relative;
+            top:5%;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg">
+        <img src="../pic/logo.png" alt="" class="logo" οnerrοr="this.style.display='none'">
+        <span class="text">POSTTEAM</span>
+        <div id="theam">
+            <h1 id="word">POSTTEAM</h1>
+        </div>
+        
+        <div id="btn">
+            <button id="denglu" @click="login">登 录</button>
+            <button id="zhuce" @click="register">注 册</button>
+        </div>
+        <div class="login_page" v-show="present">
+            <div class="username">
+                <span  class="user_name">用户名：</span>
+                <input id='user_name_input' type="text" v-model="user" @blur="username_tips_show"><br>
+                <div class="tips" @blur="username_tips_show">{{username_tips}}</div>
+            </div>
+            <div class="userpassword">
+                <span class="user_password">密 码：</span>
+                <input id='user_password_input' type="password" v-model="pwd" @blur="userpwd_tips_show"><br>
+                <div class="tips" >{{userpwd_tips}}</div>
+            </div>
+            <div class='login_page_btn'>
+                <div id="success_login_tips">{{success_login_tips}}</div>
+                <button id='login_page_denglu' @click="login_success">登 录</button>
+                <button id='login_page_cancle' @click="login_cancle">取 消</button>
+            </div>
+        </div>
+
+        <div class="register_page" v-show="register_present">
+            <div class="register_div">
+                <div  class="register_name">
+                    <span  class="user_name">用户名：</span>
+                    <input id='user_name_input' type="text" v-model="username">
+                </div>
+                <div class="zhuce_name" v-show="zhuce_tishi">
+                    <span >用户名字符长度为6-16位</span>
+                </div>
+                <div class="zhuce_name_false_tips">
+                    {{zhuce_name_tips}}
+                </div>
+                <div class="username_jpg" v-show="zhuceuname_jpg">
+                    <img  src="./jpg/one.png" alt="">
+                </div>
+            </div>
+            <div class="register_div">
+                <div class="register_password" @click="judge_username">
+                    <span class="user_password">密    码：</span>
+                    <input id='user_password_input' type="password" v-model="password">
+                </div>
+                <div class="zhuce_password" v-show="zhucepwd_tishi">
+                    <span>密码字符长度为6-16位</span>
+                </div>
+                <div class="zhuce_password_false_tips" >
+                    {{zhuce_password_tips}}
+                </div>
+                <div class="password_jpg" v-show="zhucepwd_jpg">
+                    <img  src="./jpg/one.png" alt="">
+                </div>
+            </div>
+            
+            <div class="register_div">
+                <div class="userconfirmpwd" @click="judge_password">
+                    <span class="user_confirmpassword">确 认 密 码：</span>
+                    <input id='confirm_password_input' type="password"  v-model="confirmpwd">
+                </div>
+                <div class="zhuce_confirmpwd" >
+                    {{zhuce_confirmpwd_tips}}
+                </div>
+                <div class="confirmpassword_jpg" v-show="confirmpwd_jpg">
+                    <img  src="./jpg/one.png" alt="">
+                </div>
+            </div>
+              
+            <div class="register_div">
+                <div class='register_page_btn'>
+                    <button id='login_page_denglu' @click="judge_confirmpwd">注 册</button>
+                    <button id='login_page_cancle' @click="register_cancle">取 消</button>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip=false //阻止 vue 在启动时生成生产提示
+    
+    const vm=new Vue({
+        el:'#bg',
+        data:{
+            present:false,
+            success_login_tips:'',
+            username_tips:'',
+            userpwd_tips:'',
+
+            register_present:false,
+            zhuce_tishi:true,
+            zhuce_long:false,
+            zhuce_short:false,
+            zhuceuname_jpg:false,
+            zhucepwd_tishi:true,
+            zhucepwd_long:false,
+            zhucepwd_short:false,
+            zhucepwd_jpg:false,
+            confirmpwd_jpg:false,
+            confirmpwd_success:false,
+            confirmpwd_false:false
+        },
+        methods: {
+            login(){
+                this.present=true
+            },
+            username_tips_show(){
+                if(this.user.length<=16 && this.user.length>=6){
+                    this.username_tips='用户名格式正确'
+                }else if(this.user.length<6 || this.user.length>16){
+                    this.username_tips='用户名应在6-16位之间'
+                }
+            },
+            userpwd_tips_show(){
+                if(this.pwd.length<=16 && this.pwd.length>=6){
+                    this.userpwd_tips='密码格式正确'
+                }else if(this.pwd.length<6 || this.pwd.length>16){
+                    this.userpwd_tips='密码应在6-16位之间'
+                }
+            },
+            login_success(){
+                if(this.user.length<=16 && this.user.length>=6 && this.pwd.length<=16 && this.pwd.length>=6){
+                    this.postLoginInfo()
+                    this.user=''
+                    this.pwd=''
+                    this.username_tips=''
+                    this.userpwd_tips=''
+                }
+            },
+            login_cancle(){
+                this.present=false
+                this.user=''
+                this.pwd=''
+            },
+            register(){
+                this.register_present=true
+            },
+            register_cancle(){
+                this.register_present=false
+                this.username=''
+                this.password=''
+                this.confirmpwd=''
+            },
+            judge_username(){
+                if(this.username.length>=6 && this.username.length<=16){
+                    this.zhuce_name_tips=''
+                    this.zhuce_tishi=true
+                    this.zhuceuname_jpg=true
+                }else if(this.username.length>16){
+                    this.zhuce_tishi=false
+                    this.zhuce_name_tips='长度不应超过16位'
+                    this.zhuceuname_jpg=false
+                }else if(this.username.length<6){
+                    this.zhuce_tishi=false
+                    this.zhuce_name_tips='长度不应少于6位'
+                    this.zhuceuname_jpg=false
+                }
+            },
+            judge_password(){
+                if(this.password.length>=6 && this.password.length<=16){
+                    this.zhuce_password_tips=''
+                    this.zhucepwd_tishi=true
+                    this.zhucepwd_jpg=true
+                }else if(this.password.length>16){
+                    this.zhucepwd_tishi=false
+                    this.zhuce_password_tips='长度不应超过16位'
+                    this.zhucepwd_jpg=false
+                }else if(this.password.length<6){
+                    this.zhucepwd_tishi=false
+                    this.zhuce_password_tips='长度不应少于6位'
+                    this.zhucepwd_jpg=false
+                }
+            },
+            judge_confirmpwd(){
+                if(this.password == this.confirmpwd  && this.zhucepwd_tishi==true){
+                    this.zhuce_confirmpwd_tips='密码设置成功'
+                    this.confirmpwd_jpg=true
+                    
+                }else {
+                    this.zhuce_confirmpwd_tips='密码设置失败,请检查输入密码'
+                    this.confirmpwd_jpg=false
+                    
+                }
+                this.postRegisterInfo()
+                if(this.zhuceuname_jpg ==true && this.confirmpwd_jpg==true && this.zhucepwd_jpg == true){
+                    this.register_present=false
+                }
+                this.username=''
+                this.password=''
+                this.confirmpwd=''
+                this.zhuceuname_jpg=false
+                this.zhucepwd_jpg=false
+                this.confirmpwd_jpg=false
+                
+                
+            },
+            postLoginInfo(){
+                let url="http://localhost:8080/login"
+                let params=new URLSearchParams()
+                params.append("username",this.user)
+                params.append("password",this.pwd)
+                axios.post(url,{"username":this.user,"password":this.pwd}).then((info)=>{
+                    console.log(info);
+                    this.success_login_tips=info.data
+                })
+            },
+            postRegisterInfo(){
+                let url="http://localhost:8080/register"
+                let params=new URLSearchParams()
+                params.append("username",this.username)
+                params.append("password",this.password)
+                axios.post(url,{"username":this.username,"password":this.password,"rpassword":this.confirmpwd}).then((info)=>{
+                    console.log(info);
+                    this.login_resp=info.data
+                })
+            }
+        }
+    })
+
+    
+</script>
+</html>

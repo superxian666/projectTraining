@@ -23,4 +23,7 @@ public interface UserMapper {
 
     @Select("select password from user where username = #{username}")
     public String findUser(User user);
+
+    @Select("select user_id from user where username=#{username}")
+    public Integer selectIdByName(String username);
 }

@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.firewolf</groupId>
+    <groupId>com.com.firewolf</groupId>
     <artifactId>apitest_platform</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>apitest_platform</name>

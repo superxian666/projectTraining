@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        body{
+            background: rgb(252, 237, 240);
+        }
+        .bg1{
+            background: rgb(238, 122, 141, 0.7);
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            height: 50%;
+            width: 70%;
+            color: white;
+            text-align: center;
+            padding-top: 10%;
+            font-size: 40px;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ll">
+        <div class="bg1" @click="click1" v-show="show1">
+            左亮你点一下
+        </div>
+        <div class="bg1" @click="click2" v-show="show2">
+            哈哈哈大傻蛋
+            <br>
+            傻蛋你再点一下
+        </div>
+        <div class="bg1" @click="click3" v-show="show3">
+            哈哈哈还是大傻蛋
+            <br>
+            傻蛋你再再点一下
+        </div>
+        <div class="bg1" v-show="show4">
+            傻蛋，我爱你哦❤
+        </div>
+    </div>
+    
+
+</body>
+<script>
+    new Vue({
+        el:ll,
+        data:{
+            show1:true,
+            show2:false,
+            show3:false,
+            show4:false
+        },
+        methods: {
+            click1(){
+                this.show1=false
+                this.show2=true
+            },
+            click2(){
+                this.show2=false
+                this.show3=true
+            },
+            click3(){
+                this.show3=false
+                this.show4=true
+            }
+        },
+    })
+</script>
+</html>
